@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{
+    ViewData["Title"] = "Home Page";
+    }
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="text-cont">
+    <h1 class="display-4">Welcome to Bipana's Calculator</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <br>
+    <input id="num1" type="text" placeholder="">
+    <input id="num2" type="text" placeholder="">
+    <br><br>
+    <button><label for="result">Result: </label></button>
+    <label id="result"></label>
+    <br><br>
+    <button onclick="Add()">+</button>
+    <button onclick="Substract()">-</button>
+    <button onclick="Division()">/</button>
+    <button onclick="Multiply()">*</button>
+    <button onclick="recursion()">!</button>
+
+    
+</div>
+    <script>
+        function Add(){
+            var value1 = document.getElementById("num1").value;
+            var value2 = document.getElementById("num2").value;
+            var val = parseInt(value1) + parseInt(value2);
+            document.getElementById("result").innerHTML =  val;
+            console.log(val);
+        
+        }
+        function Substract(){
+            var value1 = document.getElementById("num1").value;
+            var value2 = document.getElementById("num2").value;
+            var val = parseInt(value1) - parseInt(value2);
+            document.getElementById("result").innerHTML = val;
+            console.log(val);
+            
+        }
+        function Division(){
+            var value1= document.getElementById("num1").value;
+            var value2 = document.getElementById("num2").value;
+            var val = parseInt(value1) / parseInt(value2);
+            if (isNaN(val)) {
+                document.getElementById("result").innerHTML = " ";
+            } else {
+                document.getElementById("result").innerHTML= val;
+            }
+            console.log(val);
+        }
+        function Multiply(){
+            var value1 = document.getElementById("num1").value;
+            var value2 = document.getElementById("num2").value;
+            var val = parseInt(value1) * parseInt(value2);
+            document.getElementById("result").innerHTML = val;
+            console.log(val);
+        }
+        //recursion
+        function recursion(n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return recursion(n - 1) + recursion(n - 2);
+        }
+    }
+        
+</script>
+</body>
+</html>
